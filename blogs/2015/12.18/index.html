@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>SimpleBlog</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="images/SimpleBlog.css" type="text/css" />
+</head>
+<body>
+<div id="wrap">
+  <div id="header">
+    <h1 id="logo">Li's <span class="gray">Blog</span></h1>
+    <h2 id="slogan">Learn not to forgot</h2>
+    <div id="searchform">
+      <form method="post" class="search" action="lorcha.github.io">
+        <p>
+          <input name="search_query" class="textbox" type="text" />
+          <input name="search" class="button" type="submit" value="search" />
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div id="content-wrap">
+    <div id="sidebar">
+      <h1>Sidebar Menu</h1>
+      <ul class="sidemenu">
+        <li><a href="http://lorcha.github.io">Home</a></li>
+        <li><a href="#SampleTags">Sample Tags</a></li>
+        <li><a href="http://lorcha.github.io/blogs/">Blogs</a></li>
+        <li><a href="http://lorcha.github.io/favorite/">Favorite</a></li>
+      </ul>
+
+      <h1>Wise Words</h1>
+      <p>&quot;Be not afraid of life. Believe that life is worth living, and your belief will help create the fact.&quot; </p>
+      <p class="align-right">- William James</p>
+
+      
+    </div>
+    <div id="main"> <a name="TemplateInfo"></a>
+      <h1>2015-12-18</h1>
+      <p><strong>Play with Mongodb Notes:</p>
+      <p>(1) Mongo DB is very flexible, it supports flexible schema. The basic structure is database - collection - document. 
+      Within the the same collection, the documents can have different data schema. </p>
+      <p>(2) The reason that Mongodb supports flexible schema is because it does not have a central data catalog, which results
+       in a large data size, as each field name is saved repeatedly in each document.</p>    
+       <p>(3) If you have been running mongodb for a while and end up with a large disk space consumed by Mongodb, you can do several things: 
+       (a) run db.repairDatabase(), (b) setting the padding factor  to 1, (c) disable journaling.  </p>   
+       <p>(3) If you are new to mongodb, and you are surprised by the storage size of your data, the above options won't please you. 
+       Instead, you can try mongodb data compression options. The most effect data compression options come with wiredtiger engine.  
+       (a) Set up a sharded cluster., (b) set wiredtiger as default in the configuration file for replica sets, (c) You can have a mixture of windows and linux.
+       Your replica set must all have wiredtiger engine option. (d) Your replica set can have different mongo edition. (e) It is better to have a 
+       linux set as primary by setting the priority. (f) If your cluster has three nodes, you will end up have three ip address. It is better to enable static ip on
+       all these machines. * An advantage of using docker is that you can set up three containers for mongodb, and you can use interal ips. 
+       (g) Your computer may have ip conflicts if you set static ip. As your primary is a linux, you can steal the ip back using linux asping.
+       (h) You need to bindIp: 0.0.0.0 for your replica sets to communicate with each other. (I) Mongochef is a good interface for mongodb. 
+       It is way better than robomong, as it supports wiredtiger engine. (j) Sometimes, it is wired that you cannot start mongo.  
+       you can try to start it with mongod -f /etc/mongod.conf --repair. </p>   
+       
+       <p> Notes: For a csv file with 32mb size: When switch from MMAPv1 engine to Wiredtiger engine, datasize changed from 145mb to 132mb, 
+       storage size changed from 166mb to 51mb, dbsize changed from 0.453gb to 0.061gb.
+       The benefit of shortening name is noticeable for Wiredtiger engine. 
+       Datasize changed from 132mb to 115mb, storage size changed from 51 to 46mb, dbsize changed from 0.061 to 0.056gb. 
+       </p>
+       
+    </div>
+  </div>
+
+</div>
+
+</html>
