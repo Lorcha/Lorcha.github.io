@@ -45,7 +45,7 @@
        in a large data size, as each field name is saved repeatedly in each document.</p>    
        <p>(3) If you have been running mongodb for a while and end up with a large disk space consumed by Mongodb, you can do several things: 
        (a) run db.repairDatabase(), (b) setting the padding factor  to 1, (c) disable journaling.  </p>   
-       <p>(3) If you are new to mongodb, and you are surprised by the storage size of your data, the above options won't please you. 
+       <p>(4) If you are new to mongodb, and you are surprised by the storage size of your data, the above options won't please you. 
        Instead, you can try mongodb data compression options. The most effect data compression options come with wiredtiger engine.  
        (a) Set up a sharded cluster., (b) set wiredtiger as default in the configuration file for replica sets, (c) You can have a mixture of windows and linux.
        Your replica set must all have wiredtiger engine option. (d) Your replica set can have different mongo edition. (e) It is better to have a 
