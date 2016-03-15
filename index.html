@@ -19,10 +19,12 @@
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -60,9 +62,64 @@
       <div class="starter-template">
         <h1>Li's nest</h1>
         <p class="lead">Welcome to Li's nest </p> <br>
+
+
       </div>
 
     </div><!-- /.container -->
+
+    <script type="text/javascript">
+    var data = [ // <- A
+        {width: 10, color: 23},{width: 15, color: 33},
+        {width: 30, color: 40},{width: 50, color: 60},
+        {width: 80, color: 22},{width: 65, color: 10},
+        {width: 55, color: 5},{width: 30, color: 30},
+        {width: 20, color: 60},{width: 10, color: 90},
+        {width: 8, color: 10}
+    ];
+    
+    var colorScale = d3.scale.linear()
+        .domain([0, 100])
+        .range(["#add8e6", "blue"]); // <- B
+
+    function render(data) {
+        d3.select("body").selectAll("div.h-bar")
+            .data(data)
+            .enter().append("div")
+                .attr("class", "h-bar")                
+            .append("span");
+
+        d3.select("body").selectAll("div.h-bar")
+            .data(data)
+            .exit().remove();
+
+        d3.select("body").selectAll("div.h-bar")
+            .data(data)
+                .attr("class", "h-bar")
+                .style("width", function (d) { // <- C
+                    return (d.width * 5) + "px"; // <- D
+                })
+                .style("background-color", function(d){
+                    return colorScale(d.color); // <- E
+                })
+            .select("span")
+                .text(function (d) {
+                    return d.width; // <- F
+                });
+    }
+
+    function randomValue() {
+        return Math.round(Math.random() * 100);
+    }
+
+    setInterval(function () {
+        data.shift();
+        data.push({width: randomValue(), color: randomValue()});
+        render(data);
+    }, 1500);
+
+    render(data);
+</script>
 
 
     <!-- Bootstrap core JavaScript
@@ -73,5 +130,8 @@
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
   </body>
 </html>
