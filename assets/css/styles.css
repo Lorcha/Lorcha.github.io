@@ -62,11 +62,10 @@ button {
     min-width: 10px;
     background-color: steelblue;
     margin-bottom: 2px;
-    margin-left: 400px;
     font-size: 11px;
     color: #f0f8ff;
     text-align: center;
-    padding-right: 2px;
+
 }
 
 .v-bar {

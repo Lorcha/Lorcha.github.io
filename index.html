@@ -12,7 +12,7 @@
     <title>Lorcha @ ESRI BJ</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -62,20 +62,16 @@
       <div class="starter-template">
         <h1>Li's nest</h1>
         <p class="lead">Welcome to Li's nest </p> <br>
-
+ 
 
       </div>
 
-    </div><!-- /.container -->
+         <div id= "test" class="container">
 
-    <script type="text/javascript">
+     <h1>Running</h1>
+ <script type="text/javascript">
     var data = [ // <- A
-        {width: 10, color: 23},{width: 15, color: 33},
-        {width: 30, color: 40},{width: 50, color: 60},
-        {width: 80, color: 22},{width: 65, color: 10},
-        {width: 55, color: 5},{width: 30, color: 30},
-        {width: 20, color: 60},{width: 10, color: 90},
-        {width: 8, color: 10}
+        {width: 12673, color: 23, date: '3-1'},{width: 13541, color: 33, date: '3-2'},{width: 15127, color: 44, date: '3-3'},{width: 13654, color: 12, date: '3-4'},{width: 12158, color: 99, date: '3-5'},{width: 15017, color: 65, date: '3-6'},{width: 14360, color: 5, date: '3-7'},{width: 14939, color: 45, date: '3-8'},{width: 16609, color: 13, date: '3-9'},{width: 13754, color: 33, date: '3-10'},{width: 14414, color: 24, date: '3-12'},{width: 14617, color: 25, date: '3-13'},{width: 13573, color: 67, date: '3-14'},{width: 14423, color: 54, date: '3-15'}
     ];
     
     var colorScale = d3.scale.linear()
@@ -83,7 +79,7 @@
         .range(["#add8e6", "blue"]); // <- B
 
     function render(data) {
-        d3.select("body").selectAll("div.h-bar")
+        d3.select("#test").selectAll("div.h-bar")
             .data(data)
             .enter().append("div")
                 .attr("class", "h-bar")                
@@ -97,14 +93,14 @@
             .data(data)
                 .attr("class", "h-bar")
                 .style("width", function (d) { // <- C
-                    return (d.width * 5) + "px"; // <- D
+                    return (d.width / 50) + "px"; // <- D
                 })
                 .style("background-color", function(d){
                     return colorScale(d.color); // <- E
                 })
             .select("span")
                 .text(function (d) {
-                    return d.width; // <- F
+                    return ['Step is:', d.width, '   Date is:', d.date]; // <- F
                 });
     }
 
@@ -113,23 +109,37 @@
     }
 
     setInterval(function () {
+        tst = data[0];
         data.shift();
-        data.push({width: randomValue(), color: randomValue()});
+        data.push(tst);
+        //data.push({width: randomValue(), color: randomValue()});
         render(data);
+
     }, 1500);
 
     render(data);
 </script>
 
 
+
+    </div>
+
+    </div><!-- /.container -->
+
+
+  
+
+       
+
+   
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="dist/js/bootstrap.min.js"></script>
+<!--     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+<!--     <script src="assets/js/ie10-viewport-bug-workaround.js"></script> -->
 
 
 
