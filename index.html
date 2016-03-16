@@ -61,68 +61,86 @@
 
       <div class="starter-template">
         <h1>Li's nest</h1>
-        <p class="lead">Welcome to Li's nest </p> <br>
- 
-
+        <p class="lead">Welcome to Li's nest </p>
+        <h3>Interests</h3>
+      </div>
+        <div id = "test" class="starter-template">
       </div>
 
-         <div id= "test" class="container">
 
-     <h1>Running</h1>
+     
  <script type="text/javascript">
     var data = [ // <- A
         {width: 12673, color: 23, date: '3-1'},{width: 13541, color: 33, date: '3-2'},{width: 15127, color: 44, date: '3-3'},{width: 13654, color: 12, date: '3-4'},{width: 12158, color: 99, date: '3-5'},{width: 15017, color: 65, date: '3-6'},{width: 14360, color: 5, date: '3-7'},{width: 14939, color: 45, date: '3-8'},{width: 16609, color: 13, date: '3-9'},{width: 13754, color: 33, date: '3-10'},{width: 14414, color: 24, date: '3-12'},{width: 14617, color: 25, date: '3-13'},{width: 13573, color: 67, date: '3-14'},{width: 14423, color: 54, date: '3-15'}
     ];
-    
-    var colorScale = d3.scale.linear()
-        .domain([0, 100])
-        .range(["#add8e6", "blue"]); // <- B
+     
 
-    function render(data) {
-        d3.select("#test").selectAll("div.h-bar")
-            .data(data)
-            .enter().append("div")
-                .attr("class", "h-bar")                
-            .append("span");
+    var margin = {top:30, right:20, bottom: 30, left: 50};
+    width = 1000 - margin.left -margin.right;
+    height = 500 - margin.top - margin.bottom;
 
-        d3.select("body").selectAll("div.h-bar")
-            .data(data)
-            .exit().remove();
+    var svg = d3.select("#test")
+        .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+   function randomValue() {
+        return Math.round(Math.random() * 200);
+    };
 
-        d3.select("body").selectAll("div.h-bar")
-            .data(data)
-                .attr("class", "h-bar")
-                .style("width", function (d) { // <- C
-                    return (d.width / 50) + "px"; // <- D
-                })
-                .style("background-color", function(d){
-                    return colorScale(d.color); // <- E
-                })
-            .select("span")
-                .text(function (d) {
-                    return ['Step is:', d.width, '   Date is:', d.date]; // <- F
-                });
-    }
+    var circle1 = svg.append("circle")
+        .attr("cx", 100)
+        .attr("cy", 100)
+        .attr("r", 45)
+        .attr("text", "spatial analysis")
+        .style("fill","green");
 
-    function randomValue() {
-        return Math.round(Math.random() * 100);
-    }
+    var circle2 = svg.append("circle")
+        .attr("cx", 100)
+        .attr("cy", 100)
+        .attr("r", 55)
+        .attr("text", "spatial analysis")
+        .style("fill","blue");
+
+    var circle3 = svg.append("circle")
+        .attr("cx", 100)
+        .attr("cy", 100)
+        .attr("r", 35)
+        .attr("text", "spatial analysis")
+        .style("fill","purple");
+
+     //在1秒（1000毫秒）内将圆心坐标由100变为300
+
 
     setInterval(function () {
-        tst = data[0];
-        data.shift();
-        data.push(tst);
-        //data.push({width: randomValue(), color: randomValue()});
-        render(data);
+      circle1.transition()
+        .duration(2000)
+        .text("spatial")
+        .attr("cx", randomValue())
+        .attr("cy", randomValue());
 
-    }, 1500);
+      circle2.transition()
+        .duration(3000)
+        .text("statistics")
+        .attr("cx", randomValue()*2)
+        .attr("cy", randomValue()*2);
+      circle3.transition()
+        .duration(500)
+        .text("GIS")
+        .attr("cx", randomValue())
+        .attr("cy", randomValue());
 
-    render(data);
+ 
+
+    }, 3000);
+
+
 </script>
 
 
 
-    </div>
 
     </div><!-- /.container -->
 
