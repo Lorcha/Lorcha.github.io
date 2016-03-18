@@ -76,7 +76,7 @@
      
 
     var margin = {top:30, right:20, bottom: 30, left: 50};
-    width = 1000 - margin.left -margin.right;
+    width = 300 - margin.left -margin.right;
     height = 500 - margin.top - margin.bottom;
 
     var svg = d3.select("#test")
@@ -135,6 +135,19 @@
  
 
     }, 3000);
+
+    circle1.on("mouseover", function() {
+         circle1.transition()
+        .duration(100)
+        .text("statistics")
+        .attr("cx", randomValue()*2)
+        .attr("cy", randomValue()*2);
+
+
+
+
+    });
+
 
 
 </script>
