@@ -50,7 +50,6 @@ d3.csv("top15widgets.csv", function(error, data) {
   y.domain([0, d3.max(data, function(d) { return d.usage; })]);
 
   // append the rectangles for the bar chart
-  svg.select("#zone1").on("click",function(){alert(this.xcor});
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
