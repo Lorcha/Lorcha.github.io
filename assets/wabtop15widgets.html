@@ -59,11 +59,11 @@ d3.csv("top15widgets.csv", function(error, data) {
   // add the x Axis
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "rotate(90)")
       .call(d3.axisBottom(x));
 
   // add the y Axis
   svg.append("g")
-      .attr("transform", "rotate(90)")
       .call(d3.axisLeft(y));
 
 });
