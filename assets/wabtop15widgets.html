@@ -59,8 +59,13 @@ d3.csv("top15widgets.csv", function(error, data) {
   // add the x Axis
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .attr("transform", "rotate(90)")
       .call(d3.axisBottom(x));
+    .selectAll("text")
+      .attr("y", 0)
+      .attr("x", 9)
+      .attr("dy", ".35em")
+      .attr("transform", "rotate(90)")
+      .style("text-anchor", "start");
 
   // add the y Axis
   svg.append("g")
