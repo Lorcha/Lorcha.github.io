@@ -59,8 +59,13 @@ d3.csv("top15widgets.csv", function(error, data) {
   // add the x Axis
    g.append("g")
       .attr("class", "axis axis--x")
-      .attr("transform", "rotate(-60)")
+      .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
+      .selectAll("text")  
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)" );
 
   g.append("g")
       .attr("class", "axis axis--y")
