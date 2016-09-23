@@ -37,10 +37,10 @@ var svg = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 var circle1 = svg.append("circle")
         .attr("cx", 900)
-        .attr("cy", 400)
+        .attr("cy", 800)
         .attr("r", 45)
         .attr("text", "spatial analysis")
-        .style("fill","green");
+        .style("fill","red");
 // get the data
 d3.csv("top15widgets.csv", function(error, data) {
   if (error) throw error;
