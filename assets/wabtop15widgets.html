@@ -86,7 +86,7 @@ d3.csv("top15widgets.csv", function(error, data) {
 
     svg.append("g")
        .attr("class", "legendOrdinal")
-       .attr("transform", "translate(500,500)");
+       .attr("transform", "translate(20,900)");
 
     var legendOrdinal = d3.legendColor()
        .shape("path", d3.symbol().type(d3.symbolTriangle).size(150)())
