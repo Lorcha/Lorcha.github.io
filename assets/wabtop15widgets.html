@@ -52,7 +52,6 @@ d3.csv("top15widgets.csv", function(error, data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.widgets); })
-      .attr("transform", "rotate(90)")
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.usage); })
       .attr("height", function(d) { return height - y(d.usage); });
@@ -64,6 +63,7 @@ d3.csv("top15widgets.csv", function(error, data) {
 
   // add the y Axis
   svg.append("g")
+      .attr("transform", "rotate(90)")
       .call(d3.axisLeft(y));
 
 });
