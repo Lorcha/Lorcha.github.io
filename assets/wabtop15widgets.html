@@ -50,6 +50,7 @@ d3.csv("top15widgets.csv", function(error, data) {
   y.domain([0, d3.max(data, function(d) { return d.usage; })]);
 
   // append the rectangles for the bar chart
+  svg.select("#zone1").on("click",function(){alert(this.xcor});
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
@@ -89,7 +90,7 @@ d3.csv("top15widgets.csv", function(error, data) {
        .attr("transform", "translate(20,900)");
 
     var legendOrdinal = d3.legendColor()
-       .shape("path", d3.symbol().type(d3.symbolTriangle).size(150)())
+       .shape("path", d3.symbol().type(d3.symbolTriangle).size(50)())
        .shapePadding(10)
        .scale(ordinal);
 
