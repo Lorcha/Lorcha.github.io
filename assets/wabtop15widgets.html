@@ -46,9 +46,10 @@ var circle1 = svg.append("circle")
         .attr("cy", 100)
         .attr("r", 20)
         .attr("text", "In-panel")
-        .style("fill","green");
-   circle1.append("text")
-         .text('Test');
+        .style("fill","green")
+        .selectAll("text")	
+            .style("text-anchor", "middle");
+
         
 // get the data
 d3.csv("top15widgets.csv", function(error, data) {
@@ -76,7 +77,7 @@ d3.csv("top15widgets.csv", function(error, data) {
       .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
             else 	{ return "blue" }; })
       .selectAll("text")	
-            .style("text-anchor", "end");
+            .style("text-anchor", "middle");
 
 
     // Add the X Axis
