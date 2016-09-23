@@ -58,8 +58,8 @@ d3.csv("top15widgets.csv", function(error, data) {
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.usage); })
       .attr("height", function(d) { return height - y(d.usage); })
-      .style("fill", function(d) {if (d.type == 'Off-panel') {return "red"}
-            else 	{ return "black" }; });
+      .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
+            else 	{ return "blue" }; });
 
 
     // Add the X Axis
