@@ -41,6 +41,12 @@ var circle1 = svg.append("circle")
         .attr("r", 20)
         .attr("text", "Off-panel")
         .style("fill","blue");
+ var circle2 = svg.append("circle")
+        .attr("cx", 750)
+        .attr("cy", 50)
+        .attr("r", 20)
+        .attr("text", "In-panel")
+        .style("fill","green");
 // get the data
 d3.csv("top15widgets.csv", function(error, data) {
   if (error) throw error;
