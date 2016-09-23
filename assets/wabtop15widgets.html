@@ -56,25 +56,24 @@ d3.csv("top15widgets.csv", function(error, data) {
       .attr("y", function(d) { return y(d.usage); })
       .attr("height", function(d) { return height - y(d.usage); });
 
-  // add the x Axis
-   g.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
-      .selectAll("text")  
+
+    // Add the X Axis
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+        .selectAll("text")	
             .style("text-anchor", "end")
             .attr("dx", "-.8em")
             .attr("dy", ".15em")
-            .attr("transform", "rotate(-65)" );
+            .attr("transform", function(d) {
+                return "rotate(-65)" 
+                });
 
-  g.append("g")
-      .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y))
-    .append("text")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Frequency");
+    // Add the Y Axis
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(d3.axisLeft(y));
 
 });
 
