@@ -31,13 +31,13 @@ var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.tsv("top15widgets.csv", function(d) {
-  d.Usage = +d.Usage;
+  d.usage = +d.usage;
   return d;
 }, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.Widgets; }));
-  y.domain([0, d3.max(data, function(d) { return d.Usage; })]);
+  x.domain(data.map(function(d) { return d.widgets; }));
+  y.domain([0, d3.max(data, function(d) { return d.usage; })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
@@ -58,10 +58,10 @@ d3.tsv("top15widgets.csv", function(d) {
     .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.Widgets); })
-      .attr("y", function(d) { return y(d.Usage); })
+      .attr("x", function(d) { return x(d.widgets); })
+      .attr("y", function(d) { return y(d.usage); })
       .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.Usage); });
+      .attr("height", function(d) { return height - y(d.usage); });
 });
 
 </script>
