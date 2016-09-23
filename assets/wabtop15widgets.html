@@ -30,7 +30,7 @@ var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("top15widgets.csv", function(d) {
+d3.csv("top15widgets.csv", function(d) {
   d.usage = +d.usage;
   return d;
 }, function(error, data) {
