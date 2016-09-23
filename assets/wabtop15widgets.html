@@ -58,7 +58,7 @@ d3.csv("top15widgets.csv", function(error, data) {
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.usage); })
       .attr("height", function(d) { return height - y(d.usage); })
-      .attr("fill", function (d, z(d.type)) { return  d3.rgb(49,163,84); });
+      .attr("fill", function(d,z(d.type)) { return  d3.rgb(49,163,84); });
 
 
     // Add the X Axis
