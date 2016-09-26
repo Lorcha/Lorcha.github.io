@@ -46,22 +46,7 @@ var svg = d3.select("body").append("svg")
 
 
 
-var tooltip = svg.append("g")
-  .attr("class", "tooltip")
-  .style("display", "none");
-    
-tooltip.append("rect")
-  .attr("width", 30)
-  .attr("height", 20)
-  .attr("fill", "white")
-  .style("opacity", 0.5);
 
-tooltip.append("text")
-  .attr("x", 15)
-  .attr("dy", "1.2em")
-  .style("text-anchor", "middle")
-  .attr("font-size", "12px")
-  .attr("font-weight", "bold");
         
 // get the data
 d3.csv("top15widgets.csv", function(error, data) {
@@ -92,6 +77,7 @@ d3.csv("top15widgets.csv", function(error, data) {
       .attr("y", function(d) { return y(d.usage); })
       .attr("height", function(d) { return height - y(d.usage); })
        .on("mouseout", function() { tooltip.style("display", "none"); })
+       .on("mouseover", function() { tooltip.style("display", null); })
        .on("mousemove", function(d) {
              var xPosition = d3.mouse(this)[0] - 15;
              var yPosition = d3.mouse(this)[1] - 25;
@@ -151,6 +137,22 @@ d3.csv("top15widgets.csv", function(error, data) {
           .style("fill", color_hash[String(i)][1])
           .text(color_hash[String(i)][0]);
 	    });
+    var tooltip = svg.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+   tooltip.append("rect")
+  .attr("width", 30)
+  .attr("height", 20)
+  .attr("fill", "white")
+  .style("opacity", 0.5);
+
+   tooltip.append("text")
+  .attr("x", 15)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "12px")
+  .attr("font-weight", "bold");
         
 
 });
