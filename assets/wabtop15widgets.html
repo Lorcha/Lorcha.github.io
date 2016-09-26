@@ -41,20 +41,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
-var circle1 = svg.append("circle")
-        .attr("cx", 800)
-        .attr("cy", 50)
-        .attr("r", 20)
-        .attr("text", "Off-panel")
-        .style("fill","blue");
- var circle2 = svg.append("circle")
-        .attr("cx", 800)
-        .attr("cy", 100)
-        .attr("r", 20)
-        .attr("text", "In-panel")
-        .style("fill","green")
-        .selectAll("text")	
-            .style("text-anchor", "middle");
+
 
 var color_hash = {  0 : ["Off-panel", "blue"],
 	            1 : ["In-panel", "green"]
