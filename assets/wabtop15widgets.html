@@ -120,7 +120,7 @@ d3.csv("top15widgets.csv", function(error, data) {
       
     
     legend.selectAll('rect')
-      .data(data)
+      .data(color_hash)
       .enter()
       .append("rect")
 	  .attr("x", 800)
@@ -133,7 +133,7 @@ d3.csv("top15widgets.csv", function(error, data) {
             })
       
     legend.selectAll('text')
-      .data(data)
+      .data(color_hash)
       .enter()
       .append("text")
 	  .attr("x", w - 52)
