@@ -123,14 +123,14 @@ d3.csv("top15widgets.csv", function(error, data) {
       .data(data)
       .enter()
       .append("rect")
-	  .attr("x", w - 65)
-      .attr("y", function(d, i){ return i *  20;})
+	  .attr("x", 800)
+          .attr("y", function(d, i){ return i *  20;})
 	  .attr("width", 10)
 	  .attr("height", 10)
 	  .style("fill", function(d) { 
-        var color = color_hash[dataset.indexOf(d)][1];
-        return color;
-      })
+           var color = color_hash[dataset.indexOf(d)][1];
+           return color;
+            })
       
     legend.selectAll('text')
       .data(data)
