@@ -114,7 +114,7 @@ d3.csv("top15widgets.csv", function(error, data) {
 	  .attr("height", 100)
 	  .attr("width", 100);
 
-	legend.selectAll('g').data(data)
+     legend.selectAll('g').data(color_hash)
       .enter()
       .append('g')
       .each(function(d, i) {
