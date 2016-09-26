@@ -117,7 +117,7 @@ d3.csv("top15widgets.csv", function(error, data) {
      legend.selectAll('g').data(data)
       .enter()
       .append('g')
-      .each(function(d, i) {
+      .each(function(d.type, i) {
         var g = d3.select(this);
         g.append("rect")
           .attr("x", 800)
@@ -132,7 +132,7 @@ d3.csv("top15widgets.csv", function(error, data) {
           .attr("height",30)
           .attr("width",100)
           .style("fill", color_hash[String(i)][1])
-          .text(d.type);
+          .text(color_hash[String(i)][0]);
 	    });
         
 
