@@ -92,18 +92,19 @@ d3.csv("top15widgets.csv", function(error, data) {
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.usage); })
       .attr("height", function(d) { return height - y(d.usage); })
-      .on("mouseover", function() { tooltip.style("display", null); })
+
+      .text(function(d) { return d.usage;})
+      .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
+            else 	{ return "blue" }; })
+      .selectAll("text")	
+            .style("text-anchor", "middle")
+        .on("mouseover", function() { tooltip.style("display", null); })
       .on("mouseout", function() { tooltip.style("display", "none"); })
        .on("mousemove", function(d) {
              var xPosition = d3.mouse(this)[0] - 15;
              var yPosition = d3.mouse(this)[1] - 25;
               tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-              tooltip.select("text").text(d.usage); })
-      .text(function(d) { return d.usage;})
-      .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
-            else 	{ return "blue" }; })
-      .selectAll("text")	
-            .style("text-anchor", "middle");
+              tooltip.select("text").text(d.usage); });
 
 
     // Add the X Axis
