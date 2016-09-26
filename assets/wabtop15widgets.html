@@ -3,6 +3,10 @@
 <style> /* set the CSS */
 
 .bar { fill: steelblue; }
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
 
 </style>
 <body>
@@ -50,6 +54,9 @@ var circle1 = svg.append("circle")
         .selectAll("text")	
             .style("text-anchor", "middle");
 
+var color_hash = {  0 : ["Off-panel", "blue"],
+	            1 : ["In-panel", "green"]
+					  } 
         
 // get the data
 d3.csv("top15widgets.csv", function(error, data) {
@@ -98,7 +105,38 @@ d3.csv("top15widgets.csv", function(error, data) {
         .attr("class", "y axis")
         .call(d3.axisLeft(y));
        
-
+    var legend = svg.append("g")
+	  .attr("class", "legend")
+        //.attr("x", w - 65)
+        //.attr("y", 50)
+	  .attr("height", 100)
+	  .attr("width", 100)
+    .attr('transform', 'translate(-20,50)')    
+      
+    
+    legend.selectAll('rect')
+      .data(dataset)
+      .enter()
+      .append("rect")
+	  .attr("x", w - 65)
+      .attr("y", function(d, i){ return i *  20;})
+	  .attr("width", 10)
+	  .attr("height", 10)
+	  .style("fill", function(d) { 
+        var color = color_hash[dataset.indexOf(d)][1];
+        return color;
+      })
+      
+    legend.selectAll('text')
+      .data(dataset)
+      .enter()
+      .append("text")
+	  .attr("x", w - 52)
+      .attr("y", function(d, i){ return i *  20 + 9;})
+	  .text(function(d) {
+        var text = color_hash[dataset.indexOf(d)][0];
+        return text;
+      });
         
 
 });
