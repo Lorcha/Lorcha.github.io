@@ -8,41 +8,14 @@
   fill:white;
   stroke:black;
   opacity:0.8;}
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
 
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
 	
 </style>
 <body>
 	
 <!-- load the d3.js library -->    	
 <script src="//d3js.org/d3.v4.min.js"></script>
-<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
 <script>
 
 // set the dimensions and margins of the graph
@@ -109,6 +82,13 @@ d3.csv("top15widgets.csv", function(error, data) {
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.usage); })
       .attr("height", function(d) { return height - y(d.usage); })
+      .on("mouseover", function() { tooltip.style("display", null); })
+      .on("mouseout", function() { tooltip.style("display", "none"); })
+       .on("mousemove", function(d) {
+             var xPosition = d3.mouse(this)[0] - 15;
+             var yPosition = d3.mouse(this)[1] - 25;
+              tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+              tooltip.select("text").text(d.usage); })
       .text(function(d) { return d.usage;})
       .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
             else 	{ return "blue" }; })
@@ -125,8 +105,6 @@ d3.csv("top15widgets.csv", function(error, data) {
             .style("text-anchor", "end")
             .attr("dx", "-.20em")
             .attr("dy", ".15em")
-            .on('mouseover', tip.show)
-            .on('mouseout', tip.hide)
             .style("font-size","16px")
             .attr("transform", function(d) {
                 return "rotate(-20)" 
