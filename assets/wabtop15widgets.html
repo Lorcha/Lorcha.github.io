@@ -82,8 +82,8 @@ d3.csv("top15widgets.csv", function(error, data) {
              var xPosition = d3.mouse(this)[0] - 15;
              var yPosition = d3.mouse(this)[1] - 25;
              tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-             //tooltip.select("text").html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
-	     tooltip.html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
+             tooltip.select("svg:foreignObject").html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
+	     //tooltip.html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
       //.text(function(d) { return d.usage;})
       .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
             else 	{ return "blue" }; });
@@ -142,18 +142,15 @@ d3.csv("top15widgets.csv", function(error, data) {
   .attr("class", "tooltip")
   .style("display", "none");
     
-   tooltip.append("rect")
-  .attr("width", 300)
-  .attr("height", 40)
-  .attr("fill", "white")
-  .style("opacity", 0.9);
 
-   tooltip.append("text")
-  .attr("x", 15)
-  .attr("dy", "1.2em")
+
+   tooltip.append("svg:foreignObject")
+  .attr("width", 300)
+  .attr("height", 60)
   .style("text-anchor", "left")
-  .attr("font-size", "12px")
-  .attr("font-weight", "bold");
+  .append("xhtml:body")
+      .attr("xmlns", "http://www.w3.org/1999/xhtml")
+      .html(function(d){ return "<a href=" + d.intro + ">" + d.widgets + "</a>"; });
         
 
 });
