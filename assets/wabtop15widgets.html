@@ -82,7 +82,7 @@ d3.csv("top15widgets.csv", function(error, data) {
              var xPosition = d3.mouse(this)[0] - 15;
              var yPosition = d3.mouse(this)[1] - 25;
              tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-             tooltip.select("svg:foreignObject").html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
+             tooltip.html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
 	     //tooltip.html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
       //.text(function(d) { return d.usage;})
       .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
