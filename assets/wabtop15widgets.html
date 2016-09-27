@@ -83,7 +83,7 @@ d3.csv("top15widgets.csv", function(error, data) {
              var yPosition = d3.mouse(this)[1] - 25;
              tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
              //tooltip.select("text").html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
-	     tooltip.select("text").html("<strong>Frequency:</strong> <span style='color:red'>" + d.intro + "</span>"); })
+	     tooltip.select("text").text(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
       //.text(function(d) { return d.usage;})
       .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
             else 	{ return "blue" }; });
@@ -153,6 +153,7 @@ d3.csv("top15widgets.csv", function(error, data) {
   .attr("dy", "1.2em")
   .style("text-anchor", "left")
   .attr("font-size", "12px")
+  .html("<strong>Frequency:</strong> <span style='color:red'>" + d.intro + "</span>")
   .attr("font-weight", "bold");
         
 
