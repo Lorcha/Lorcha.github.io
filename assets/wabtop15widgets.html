@@ -83,7 +83,7 @@ d3.csv("top15widgets.csv", function(error, data) {
              var yPosition = d3.mouse(this)[1] - 25;
              tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
 	     tooltip.select("text").text(d.widgets + ": " + d.intro)
-	     tooltip.select("text").call(wrap,30);})
+	     tooltip.select("text").call(wrap,250);})
              //tooltip.select("text").html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
 	     //tooltip.html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
       //.text(function(d) { return d.usage;})
@@ -165,7 +165,7 @@ function wrap(text, width) {
         word,
         line = [],
         lineNumber = 0,
-        lineHeight = 1.1, // ems
+        lineHeight = 0.5, // ems
         y = text.attr("y"),
         dy = parseFloat(text.attr("dy")),
         tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
