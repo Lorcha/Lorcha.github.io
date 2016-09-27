@@ -64,7 +64,7 @@ d3.csv("top15widgets.csv", function(error, data) {
   var h = 300;
   var padding = 50;
   var color_hash = {  0 : ["Off-panel", "#8CD3DD"],
-	            1 : ["In-panel", "green"]
+	            1 : ["In-panel", "orange"]
 					  };
 
   // append the rectangles for the bar chart
@@ -85,8 +85,8 @@ d3.csv("top15widgets.csv", function(error, data) {
              tooltip.select("rect").html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
 	     //tooltip.html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
       //.text(function(d) { return d.usage;})
-      .style("fill", function(d) {if (d.type == 'Off-panel') {return "green"}
-            else 	{ return "blue" }; });
+      .style("fill", function(d) {if (d.type == 'Off-panel') {return "orange"}
+            else 	{ return "#8CD3DD" }; });
 
 
     // Add the X Axis
