@@ -82,6 +82,7 @@ d3.csv("top15widgets.csv", function(error, data) {
              var xPosition = d3.mouse(this)[0] - 15;
              var yPosition = d3.mouse(this)[1] - 25;
              tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+	     tooltip.select("text").text(d.widgets + ": " + d.usage +  "<br> line"  + d.intro)
 	     tooltip.select("text").call(wrap,300);})
              //tooltip.select("text").html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
 	     //tooltip.html(d.widgets + ": " + d.usage +  "<br> line"  + d.intro); })
