@@ -126,15 +126,15 @@ d3.csv("top15widgets.csv", function(error, data) {
       .each(function(d, i) {
         var g = d3.select(this);
         g.append("rect")
-          .attr("x", 780)
-          .attr("y", i*100)
+          .attr("x", 600)
+          .attr("y", i*50)
           .attr("width", 10)
           .attr("height", 10)
           .style("fill", color_hash[String(i)][1]);
         
         g.append("text")
-          .attr("x", 810)
-          .attr("y", i * 500 + 8)
+          .attr("x", 630)
+          .attr("y", i * 50 + 8)
           .attr("height",30)
           .attr("width",100)
           .style("fill", color_hash[String(i)][1])
