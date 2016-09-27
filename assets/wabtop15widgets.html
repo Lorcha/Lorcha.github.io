@@ -18,7 +18,7 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 70, left: 70},
+var margin = {top: 20, right: 250, bottom: 70, left: 70},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -147,13 +147,13 @@ var tooltip = svg.append("g")
     
    tooltip.append("rect")
   .attr("width", 300)
-  .attr("height", 40)
+  .attr("height", 250)
   .attr("fill", "white")
   .style("opacity", 0.9);
 
    tooltip.append("text")
   .attr("width", 300)
-  .attr("dy", "1.2em")
+  .attr("dy", "1em")
   .style("text-anchor", "left")
   .attr("font-size", "12px")
   .attr("font-weight", "bold");
