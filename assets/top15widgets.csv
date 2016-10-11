@@ -1,7 +1,7 @@
 widgets,usage,type,intro
 Overview Map,9756,Off-panel,Shows the current spatial extent of the map display as a gray rectangle relative to the entire spatial extent of the basemap service
 Coordinate,9756,Off-panel,Displays coordinates in the current map projection when moving the pointer on the map or in other coordinate systems by clicking the map 
-Scale bar,9756,Off-panel,Displays a scale bar on the map
+Scale Bar,9756,Off-panel,Displays a scale bar on the map
 Splash,9743,Off-panel,Displays content on the splash screen
 Search,9619,Off-panel,Replaces the existing Geocoder widget with support for searching and suggestions on multiple sources
 Zoom Slider,9600,Off-panel,Provides interactive zoom controls in the map display
