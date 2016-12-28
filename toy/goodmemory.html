@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+ 
+body {
+  background: #222;
+  font-family: sans-serif;
+  font-style: italic;
+}
+ 
+</style>
+<body>
+
+<div id="test"></div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var margin = {top:30, right:20, bottom: 30, left: 50};
+    width = 1500 - margin.left -margin.right;
+    height = 1200 - margin.top - margin.bottom;
+    var x_min = 50; x_max = 1400; y_min = 50; y_max = 750;
+    var xLst = [x_min, x_max, x_max, x_min, 
+    x_min, x_max, x_max, x_min, 
+    x_min, x_max, x_max, x_min, 
+    x_min, x_max, x_max, x_min, 
+    x_min, x_max, x_min, x_max, 
+    x_min, x_max, x_min, x_max, 
+    x_min, x_max, x_min, x_max, 
+    x_min, x_max, x_min, x_max,
+    x_min, x_min, x_max, x_max,
+    x_min, x_min, x_max, x_max,
+    x_min, x_min, x_max, x_max,
+    x_min, x_min, x_max, x_max
+
+ 
+
+
+    ];
+    var yLst = [y_min, y_min, y_max, y_max, 
+    y_min, y_min, y_max, y_max, 
+    y_min, y_min, y_max, y_max, 
+    y_min, y_min, y_max, y_max, 
+    y_min, y_min, y_max, y_max,
+    y_min, y_min, y_max, y_max, 
+    y_min, y_min, y_max, y_max, 
+    y_min, y_min, y_max, y_max,
+    y_min, y_max, y_max, y_min,
+    y_min, y_max, y_max, y_min,
+    y_min, y_max, y_max, y_min,
+    y_min, y_max, y_max, y_min
+
+
+
+
+    ];
+
+    var svg = d3.select("#test")
+        .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+
+     var circle1 = svg.append("circle")
+        .attr("cx", 100)
+        .attr("cy", 100)
+        .attr("r", 45)
+        .attr("text", "spatial analysis")
+        .style("fill","green");
+
+     function movecircle(x, y)
+     { 
+
+        circle1.transition()
+        .duration(800)
+        .text("spatial")
+        .attr("cx", x)
+        .attr("cy", y);
+
+      };
+  
+
+  
+
+
+ for (var i = 1; i <= 48; i++) {
+    setTimeout(function(x, y) { return function() { movecircle(x, y); }; }(xLst[i], yLst[i]), 1000*i);
+    // 1 2 3 4 5
+}
+
+
+</script>

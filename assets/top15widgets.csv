@@ -1,0 +1,19 @@
+widgets,usage,type,intro
+Zoom Slider,9461,Off-panel,Provides interactive zoom controls in the map display
+Legend,9161,In-panel,Displays a legend for the visible layers in the map
+Layer List,8996,In-panel,Displays a list of operational layers in the app
+Home Button,8840,Off-panel,Click to zoom to the map's initial extent
+Scale Bar,8619,Off-panel,Displays a scale bar on the map
+Search,8370,Off-panel,Replaces the existing Geocoder widget with support for searching and suggestions on multiple sources
+My Location,8146,Off-panel,Detects your physical location and zooms to it on the map
+Coordinate,7659,Off-panel,Displays coordinates in the current map projection when moving the pointer on the map or in other coordinate systems by clicking the map 
+Overview Map,7459,Off-panel,Shows the current spatial extent of the map display as a gray rectangle relative to the entire spatial extent of the basemap service
+Attribute Table,6471,Off-panel,Displays a tabular view of certain operational layers' attributes
+Basemap Gallery,4328,In-panel,Presents a gallery of basemaps and allows you to select one
+Print,3433,In-panel,Advanced or basic printing of the current map
+Measurement,3271,In-panel,Allows you to measure geographic elements
+About,1991,In-panel,Allows you to add descriptions about your app
+Draw,1790,In-panel,Draws basic graphics and text on the map
+
+
+
