@@ -14,7 +14,7 @@
     #viewDiv {
       padding: 0;
       margin: 0;
-      height: 100%;
+      height: 95%;
       width: 100%;
     }
   </style>
@@ -28,6 +28,9 @@
       "esri/symbols/PolygonSymbol3D",
       "esri/symbols/ExtrudeSymbol3DLayer",
       "esri/widgets/Legend",
+
+      "dojo/dom",
+      "dojo/on",
       "dojo/domReady!"
     ], function(
       Map, SceneView, FeatureLayer, SimpleRenderer, PolygonSymbol3D,
@@ -129,14 +132,158 @@
         map: map,
         camera: {
           position: {
-            latitude: 18.24237,
-            longitude: -88.72943,
-            z: 1534560
+            latitude: 38.33880873489345,
+            longitude: -76.82006178011709,
+            z: 25278145
           },
-          tilt: 45,
-          heading: 10
+          tilt: 0.1009566534785467,
+          heading: 16.376755347824826
         }
       });
+
+      // Watch the change on view.camera
+      var posi = view.camera.position;
+      updateIndicator();
+
+
+
+
+      view.watch("camera", updateIndicator);
+
+  
+
+  
+      var lstx = [-76.82006178011709,-74.82039139898504,-80.42371324337958,-83.76795913316305,-84.2498896967281,-84.57548463073292,-84.97696167212028,-84.53129596373088,-83.2465281380629];
+      var lsty = [38.33880873489345,33.57907282198271,32.767466225606675,23.020902262257863,27.708220609704206,24.193039116340675,24.265488420407436,25.382634941859727,36.51937357774331];
+      var lstz = [25278145.272088766,11747940.570961315,5536912.039218707,5291422.823466592,2467518.6401864477,2247467.7918551452,2027162.9816511031,1674841.7656177795,709374.2759584626];
+      var lstt = [0.1009566534785467,0.17610680230115963,0.2709999664020874,13.138965990576258,17.158186239541283,27.43184647853532,32.80335800351301,42.37175995154939,49.97320082538519];
+      var lsth = [16.376755347824826,17.570449282065724,14.531947382923887,8.39304761824327,8.025512924664477,6.1429166312300145,3.641178321518405,0.2573343799789034,1.1353242497515936];
+      var lstd = [5000,4000,4000,3000,3000,2500,2500,2000,500];
+      function updateIndicator(camera) {
+      document.getElementById("cam_X").value = view.camera.position.latitude;
+      document.getElementById("cam_Y").value = view.camera.position.longitude;
+      document.getElementById("cam_Z").value = view.camera.position.z;
+      document.getElementById("cam_T").value = view.camera.tilt;
+      document.getElementById("cam_H").value = view.camera.heading;
+      };
+
+      document.getElementById("goto1").onclick = function() {
+
+        i = 1;
+        flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+
+      };
+
+
+      document.getElementById("goto2").onclick = function() {
+
+        i = 2;
+        flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+
+      };
+
+        document.getElementById("goto3").onclick = function() {
+
+        i = 3;
+        flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+
+      };
+
+
+
+
+        document.getElementById("goto4").onclick = function() {
+
+        i = 4;
+        flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+
+      };
+
+
+        document.getElementById("goto5").onclick = function() {
+
+        i = 5;
+        flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+
+      };
+
+
+        document.getElementById("goto6").onclick = function() {
+
+        i = 6;
+        flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+
+      };
+
+
+
+        document.getElementById("goto7").onclick = function() {
+
+        i = 7;
+        flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+
+      };
+
+
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+};
+
+
+
+//   for (var i = 1; i < 5; i++) {
+//     wait(7000);
+
+//   setTimeout(function () {
+//     flyto(lstx[i], lsty[i], lstz[i], lstt[i], lsth[i], lstd[i]);
+//     alert("hh");
+
+//   }, 6000);
+//   };
+
+
+
+// function checkAndSee(a) {
+//     var val_x = document.getElementById("cam_X").value
+
+//     if (val_x == lstx[a]) {
+//         setTimeout(checkAndSee, 500, a+1); // setTimeout(func, timeMS, params...)
+//     } else {
+//         // Set location on form here if it isn't in getLocation()
+//         console.log("wait");
+//     }
+// };
+
+// b = 0;
+// while (b <9) {
+
+// //checkAndSee(b);
+// flyto(lstx[b], lsty[b], lstz[b], lstt[b], lsth[b], lstd[b]);
+
+// };
+
+
+
+
+      function flyto(x,y,z,t,h,d) {
+
+      var opts = {
+        duration: d };
+      view.goTo({
+        position: [x,y,z], 
+        tilt: t, 
+        heading: h
+
+        }, opts);
+      updateIndicator();
+      };
+      
+
+
 
       var legend = new Legend({
         view: view
@@ -144,12 +291,40 @@
 
       view.ui.add(legend, "bottom-right");
 
+
+      
+
     });
+
+
+
+
   </script>
 </head>
 
 <body>
   <div id="viewDiv"></div>
+
+
+         <div id="room_fileds">
+           <div>
+            <div class='label'>Camera Position:</div>
+            <div class="content">
+                <span>X: <input type="text" id= "cam_X" style="width:48px;" name="x[]" value="" /><small>(ft)</small> X </span>
+                <span>Y: <input type="text" id= "cam_Y" style="width:48px;" namae="y[]" value="" /><small>(ft)</small></span>
+                <span>Z: <input type="text" id= "cam_Z" style="width:48px;" namae="z[]" value="" /><small>(ft)</small></span>
+                <span>Tilt: <input type="text" id= "cam_T" style="width:48px;" namae="tilt[]" value="" /><small>(ft)</small></span>
+                <span>Heading: <input type="text" id= "cam_H" style="width:48px;" namae="heading[]" value="" /><small>(ft)</small></span>
+               <button id="goto1" title="goto1">↻</button>
+               <button id="goto2" title="goto2">↻</button>
+               <button id="goto3" title="goto3">↻</button>
+               <button id="goto4" title="goto4">↻</button>
+               <button id="goto5" title="goto5">↻</button>
+               <button id="goto6" title="goto6">↻</button>
+               <button id="goto7" title="goto7">↻</button>
+            </div>
+           </div>
+        </div>
 </body>
 
 </html>
