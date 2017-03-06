@@ -24,16 +24,16 @@
 
 
 .video {
-    height: 0;
+    height: 50;
     position: relative;
-    padding-bottom: 75%; /* Если видео 16/9, то 9/16*100 = 56.25%. Также и с 4/3 - 3/4*100 = 75% */
+    padding-bottom: 56%; /* Если видео 16/9, то 9/16*100 = 56.25%. Также и с 4/3 - 3/4*100 = 75% */
 }
 .video iframe {
     position: absolute;
     left: 0;
-    top: 5;
-    width:300px; 
-    height:400px
+    top: 50;
+    width:300px;
+    height:800px
     right: 0;
 }
 
