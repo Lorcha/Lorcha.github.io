@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">	
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dive</title>
+<link href="./css/self.css" rel="stylesheet"  type="text/css"/> 
+
+<link href="./css/tango/skin.css" rel="stylesheet"  type="text/css"/> 
+<body onload="init()">
+	<!-- WRAPPER -->
+	<div class="wrapper">
+				
+		<!-- main navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top" id="main-nav" role="navigation">
+			<div class="container">
+				<!-- brand and toggle -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav-collapse">
+						<span class="sr-only"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>					
+				</div>
+
+				<!-- navigation links -->
+				<div class="collapse navbar-collapse main-nav-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#about-us">About</a></li>
+						<li class=""><a href="#videos">Cool Videos</a></li>
+						<li class=""><a href="#templates">Templates</a></li>
+						<li class=""><a href="#contacts">Contact Me</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- end main navigation -->
+
+		<!-- header -->
+		<header class="jumbotron header" id="about-us">
+			<div class="container">
+		<div class="row">
+<!-- 							<div class="col-md-5 left">
+						<div class="avatar">
+							<img src="./images/avetor.jpg" class="img-responsive" alt="Profile Picture">
+						</div>
+					</div> -->
+
+					<div class="col-md-7 right">
+						<h1 class="hide">Geoplay</h1>
+						<h2 class="heading">HELLO, Welcome to GeoPlay</h2>
+						<p>A micro video maker</p>
+						</div>
+				</div>
+			</div>
+		</header>
+		<!-- end header -->
+
+
+
+		<!-- projects -->
+		<section class="section projects" id="videos">
+			<div class="container carsoul_panel">
+				<p>Demo</p><div class="row project-list">
+				<ul id="mycarousel" class="jcarousel-skin-tango project-effect-shrink">
+    <li >
+    	<figure>
+    	<iframe class="embed-responsive-item" src="http://omqf5vowr.bkt.clouddn.com/vid1.mp4" frameborder="0" allowfullscreen></iframe>
+			<figcaption>
+				<div class="project-item-info">
+					<h3 class="sub-heading">Dive</h3>
+					<p>生成上帝视角微电影</p>
+				</div>
+			</figcaption>
+		</figure>
+    	
+    </li>
+    <li>
+    	<figure>
+			<iframe class="embed-responsive-item" src="http://omqf5vowr.bkt.clouddn.com/vid2.mp4" frameborder="0" allowfullscreen></iframe>
+			<figcaption>
+				<div class="project-item-info">
+					<h3 class="sub-heading">Go Home</h3>
+					<p>生成旅行路线微电影</p>
+				</div>
+			</figcaption>
+		</figure>
+    </li>
+    <li>
+    	<figure>
+			<iframe class="embed-responsive-item" src="http://omqf5vowr.bkt.clouddn.com/vid3.mp4" frameborder="0" allowfullscreen></iframe>
+			<figcaption>
+				<div class="project-item-info">
+					<h3 class="sub-heading">more</h3>
+					<p>Wait</p>
+				</div>
+			</figcaption>
+		</figure>
+    </li>
+    <li>
+    	<a href="http://www.esri.com">
+    		<figure>
+				<img src="./images/lib/m.jpg" alt="more">
+				<figcaption>
+					<div class="project-item-info">
+						<h3 class="sub-heading">more</h3>
+						<p>Wait</p>
+					</div>
+				</figcaption>
+			</figure>
+    	</a>
+    </li>
+  
+   
+  </ul>
+				
+				</div>
+			</div>	
+		</section>
+		<!-- end projects -->
+		
+		<!-- contacts -->
+		<section class="section contacts" id="templates">
+			<div class="container">
+				<h2 class="heading">Find An Address</h2>
+		
+				<div class="row contact-address">
+					<div class="col-md-6">
+						<div class="contact-form margin-bottom">
+							<div class="alert"></div>
+							<form method="post">   
+	                         
+								<input id="address_type" name="subject" value="中国,北京,朝阳区,三元桥" placeholder="Address" type="text">  
+                                <input id="out_search" value="" placeholder="Address" type="text">  
+								<button class="btn btn-primary btn-lg" onclick="codeAddress()">Search</button>
+<!-- 								<button onclick="codeAddress() value="提交" class="btn btn-primary btn-lg" id="input_search"  type="submit"> -->
+								<span class="help-lock"></span>
+							</form>						
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div style="width:100%;height:200px" id="mapContainer"></div>
+
+
+						<!--div class="address-lines">
+							<p>手机: 15026690594</p>
+							<p>QQ: <a href="http://wpa.qq.com/msgrd?V=1&Uin=592391027&Site=exg.shnow.cn&Menu=yes"></a>592391027</p>
+							<p>电子邮件: <a href="mailto:guowei@shnow.cn">guowei@shnow.cn</a></p>
+						</div-->
+					</div>
+				</div>
+			</div>	
+		</section>
+		<!-- end contacts -->
+
+		<!-- footer -->
+		<footer class="footer">
+			<p>Copyright 2013 Powered By Carlos Guo</p>
+		</footer>
+		<!-- end footer -->
+
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script type="text/javascript" src="./js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery.ui.map.full.min.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery.scrollTo.min.js"></script>
+	<script type="text/javascript" src="./js/lib/query.localscroll.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.jcarousel.min.js"></script>
+	<script src="http://map.qq.com/api/js?v=2.exp&libraries=place" charset="utf-8"></script>
+<!-- 	<script type="text/javascript" src="./js/mapOperate.js"></script> -->
+	<script type="text/javascript" src="./js/QQmap.js"></script>
+	<script type="text/javascript" src="./js/chart.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	
+	</body>
+</html>
+

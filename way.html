@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
+    <script src="https://github.com/bassjobsen/Bootstrap-3-Typeahead/blob/master/bootstrap3-typeahead.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -82,7 +82,42 @@
 </div>
 
 
+<div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="text" class="form-control" id="usr">
+
+  <input type="text" data-provide="typeahead">
+</div>
+<script type="text/javascript">
+  
+var $input = $(".typeahead");
+$input.typeahead({
+  source: [
+    {id: "someId1", name: "Display name 1"},
+    {id: "someId2", name: "Display name 2"}
+  ],
+  autoSelect: true
+});
+$input.change(function() {
+  var current = $input.typeahead("getActive");
+  if (current) {
+    // Some item from your model is active!
+    if (current.name == $input.val()) {
+      // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
+    } else {
+      // This means it is only a partial match, you can either add a new item
+      // or take the active if you don't want new items
+    }
+  } else {
+    // Nothing is active so it is a new value (or maybe empty value)
+  }
+});
+
+  
+</script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
+
   </body>
 </html>
