@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dive</title>
+<link href="./css/self.css" rel="stylesheet"  type="text/css"/>
+
+<link href="./css/tango/skin.css" rel="stylesheet"  type="text/css"/>
+<body onload="init()">
+	<!-- WRAPPER -->
+	<div class="wrapper">
+
+		<!-- header -->
+		<header class="jumbotron header" id="about-us">
+			<div class="container">
+		<div class="row">
+<!-- 							<div class="col-md-5 left">
+						<div class="avatar">
+							<img src="./images/avetor.jpg" class="img-responsive" alt="Profile Picture">
+						</div>
+					</div> -->
+
+					<div class="col-md-7 right">
+						<h1 class="hide">City Feel</h1>
+						<h2 class="heading">HELLO, Welcome to City Feel</h2>
+						<p>A site allows you to feel a city</p>
+						</div>
+				</div>
+			</div>
+		</header>
+		<!-- end header -->
+
+
+
+		<!-- projects -->
+		<section class="section projects" id="videos">
+			<div class="container carsoul_panel">
+				<p>Demo</p><div class="row project-list">
+				<ul id="mycarousel" class="jcarousel-skin-tango project-effect-shrink">
+    <li >
+    	<figure>
+    	<img src="./images/lib/img1.png" alt="more">
+			<figcaption>
+				<div class="project-item-info">
+					<h3 class="sub-heading">Dive</h3>
+					<p>Housing Price</p>
+				</div>
+			</figcaption>
+		</figure>
+
+    </li>
+    <li>
+    	<figure>
+			<img src="./images/lib/img2.png" alt="more">
+			<figcaption>
+				<div class="project-item-info">
+					<h3 class="sub-heading">Go Home</h3>
+					<p>Site values</p>
+				</div>
+			</figcaption>
+		</figure>
+    </li>
+    <li>
+    	<figure>
+							<img src="./images/lib/img3.png" alt="more">
+			<figcaption>
+				<div class="project-item-info">
+					<h3 class="sub-heading">more</h3>
+					<p>Wait</p>
+				</div>
+			</figcaption>
+		</figure>
+    </li>
+    <li>
+    	<a href="http://www.esri.com">
+    		<figure>
+				<img src="./images/lib/m.jpg" alt="more">
+				<figcaption>
+					<div class="project-item-info">
+						<h3 class="sub-heading">more</h3>
+						<p>Wait</p>
+					</div>
+				</figcaption>
+			</figure>
+    	</a>
+    </li>
+
+
+  </ul>
+
+				</div>
+			</div>
+		</section>
+		<!-- end projects -->
+
+		<!-- contacts -->
+		<section class="section contacts" id="templates">
+			<div class="container">
+				<h2 class="heading"></h2>
+
+				<div class="row contact-address">
+					<div class="col-md-6">
+						<div class="contact-form margin-bottom">
+							<div class="alert"></div>
+							<form method="post">
+
+								<input id="address_type" name="subject" value="中国,北京,朝阳区,三元桥" placeholder="Address" type="text">
+                                <input id="out_search" value="" placeholder="Address" type="text">
+								<button class="btn btn-primary btn-lg" onclick="codeAddress()">Search</button>
+<!-- 								<button onclick="codeAddress() value="提交" class="btn btn-primary btn-lg" id="input_search"  type="submit"> -->
+								<span class="help-lock"></span>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div style="width:70%;height:150px" id="mapContainer"></div>
+
+
+						<!--div class="address-lines">
+							<p>手机: 15026690594</p>
+							<p>QQ: <a href="http://wpa.qq.com/msgrd?V=1&Uin=592391027&Site=exg.shnow.cn&Menu=yes"></a>592391027</p>
+							<p>电子邮件: <a href="mailto:guowei@shnow.cn">guowei@shnow.cn</a></p>
+						</div-->
+					</div>
+					<div class="col-md-6">
+						<div style="width:100%;height:150px" id="wordcld">
+           <img src="./images/lib/img3.png" width="100%" alt="more">
+
+						</div>
+
+
+						<!--div class="address-lines">
+							<p>手机: 15026690594</p>
+							<p>QQ: <a href="http://wpa.qq.com/msgrd?V=1&Uin=592391027&Site=exg.shnow.cn&Menu=yes"></a>592391027</p>
+							<p>电子邮件: <a href="mailto:guowei@shnow.cn">guowei@shnow.cn</a></p>
+						</div-->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- end contacts -->
+
+
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script type="text/javascript" src="./js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery.ui.map.full.min.js"></script>
+	<script type="text/javascript" src="./js/lib/jquery.scrollTo.min.js"></script>
+	<script type="text/javascript" src="./js/lib/query.localscroll.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.jcarousel.min.js"></script>
+	<script src="http://map.qq.com/api/js?v=2.exp&libraries=place" charset="utf-8"></script>
+<!-- 	<script type="text/javascript" src="./js/mapOperate.js"></script> -->
+	<script type="text/javascript" src="./js/QQmap.js"></script>
+	<script type="text/javascript" src="./js/chart.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+
+	</body>
+</html>
