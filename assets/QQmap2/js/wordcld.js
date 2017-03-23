@@ -2,7 +2,7 @@
 (function() {
     var fill = d3.scale.category20();
     //what range of font sizes do we want, we will scale the word counts
-    var fontSize = d3.scale.log().range([5, 30]);
+    var fontSize = d3.scale.log().range([60, 90]);
 
     //create my cloud object
     var mycloud = d3.layout.cloud().size([300, 200])
@@ -17,16 +17,16 @@
     //render the cloud with animations
      function draw(words) {
         //fade existing tag cloud out
-        d3.select("wordcld").selectAll("svg").selectAll("g")
+        d3.select("#wordcld").selectAll("svg").selectAll("g")
             .transition()
-                .duration(1000)
+                .duration(500)
                 .style("opacity", 1e-6)
                 .remove();
 
         //render new tag cloud
-        d3.select("body").selectAll("svg")
+        d3.select("#wordcld").selectAll("svg")
             .append("g")
-                 .attr("transform", "translate(300,300)")
+                 .attr("transform", "translate(100,100)")
                 .selectAll("text")
                 .data(words)
             .enter().append("text")
@@ -37,57 +37,52 @@
             .attr("text-anchor", "middle")
             .attr("transform", function(d) { return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")"; })
             .transition()
-            .duration(1000)
+            .duration(500)
             .style("opacity", 1)
             .text(function(d) { return d.text; });
       }
 
-    //ajax call
-
-   function getJSONP(url, success) {
-
-    var ud = '_' + +new Date,
-        script = document.createElement('script'),
-        head = document.getElementsByTagName('head')[0] 
-               || document.documentElement;
-
-    window[ud] = function(data) {
-        head.removeChild(script);
-        success && success(data);
-    };
-
-    script.src = url.replace('callback=?', 'callback=' + ud);
-    head.appendChild(script);
-
-};
 var j_obj;
-getJSONP('http://vm-3dfx:8090/beijing/beijing/116/60', function(data){
-    console.log(data);
-    j_obj = JSON.parse(data);
-});  
+
+
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', "http://vm-3dfx:8090/beijing/beijing/116/40", true);
+xhr.send();
+xhr.onreadystatechange = processRequest;
+
+function processRequest(e) {
+    if (xhr.readyState == 4) {
+      j_obj = JSON.parse(xhr.responseText);
+      
+       get_words(j_obj[0]['attributes']);
+
+
+    }
+}
+
 
     function get_words(obj) {
         //make ajax call
-  
-        d3.json(obj, function(json, error) {
-          if (error) return console.warn(error);
           var words_array = [];
-          for (key in json){
-            words_array.push({text: key, size: json[key]})
+          for (key in obj){
+            if (obj[key] > 100) {
+              alert(key);
+            words_array.push({text: key, size: obj[key]} ) }
           }
           //render cloud
           mycloud.stop().words(words_array).start();
-        });
     };
 
     //create SVG container
-    d3.select("wordcld").append("svg")
-        .attr("width", 300)
-        .attr("height", 200);
+
+
 
     //render first cloud
-    get_words(j_obj);
+
 
     //start streaming
     //var interval = setInterval(function(){get_words()}, 4000);
 })();
+
+
