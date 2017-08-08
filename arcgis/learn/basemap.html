@@ -18,8 +18,10 @@
 require([
   "esri/Map",
   "esri/views/SceneView",
+  "dojo/on",
+  "dojo/dom",
   "dojo/domReady!"
-], function(Map, SceneView){
+], function(Map, SceneView,on,dom){
   var map = new Map({
     basemap: "streets",
     ground: "world-elevation"
@@ -30,10 +32,75 @@ require([
     scale: 50000000,          // Sets the initial scale to 1:50,000,000
     center: [-101.17, 21.78]  // Sets the center point of view with lon/lat
   });
+   on(dom.byId("goto1"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("streets");
+      });
+
+      on(dom.byId("goto2"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("satellite");
+      });
+      on(dom.byId("goto3"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("hybrid");
+      });
+      on(dom.byId("goto4"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("gray");
+      });
+
+      on(dom.byId("goto5"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("dark-gray");
+      });
+
+      on(dom.byId("goto6"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("streets-night-vector");
+      });
+
+      on(dom.byId("goto7"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("streets-navigation-vector");
+      });
+      on(dom.byId("goto8"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+        setbase("osm");
+      });
+
+function setbase(bsmp) {
+          map.basemap = bsmp;
+
+
+      };
+
+
 });
+
+
+
+
+
 </script>
 </head>
 <body>
   <div id="viewDiv"></div>
+
+ <div id="basemaps_div">
+           <div>
+            <div class='label'>Basemap Buttons:</div>
+            <div class="content">
+               <button id="goto1" title="goto1">"streets"</button>
+               <button id="goto2" title="goto2">"satellite"</button>
+               <button id="goto3" title="goto3">"hybrid"</button>
+               <button id="goto4" title="goto4">"gray"</button>
+               <button id="goto5" title="goto5">"dark-gray"</button>
+               <button id="goto6" title="goto6">"streets-night-vector"</button>
+               <button id="goto7" title="goto7">"streets-navigation-vector"</button>
+               <button id="goto8" title="goto8">"osm"</button>
+            </div>
+           </div>
+        </div>
 </body>
 </html>
