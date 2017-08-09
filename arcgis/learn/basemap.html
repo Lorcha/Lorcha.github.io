@@ -12,16 +12,23 @@
     width: 100%;
   }
 </style>
-<link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
-<script src="https://js.arcgis.com/4.4/"></script>
-<script>
-require([
-  "esri/Map",
-  "esri/views/SceneView",
-  "dojo/on",
-  "dojo/dom",
-  "dojo/domReady!"
-], function(Map, SceneView,on,dom){
+ <link href="https://js.arcgis.com/4.4/esri/css/main.css" rel="stylesheet" type="text/css">
+  <script src="https://js.arcgis.com/4.4"></script>
+
+  <script>
+    require([
+      "esri/config",
+      "esri/layers/WebTileLayer",
+      "esri/Map",
+      "esri/Basemap",
+      "esri/widgets/BasemapToggle",
+      "esri/views/SceneView",
+      "dojo/on",
+      "dojo/dom",
+      "dojo/domReady!"
+    ], function(esriConfig, WebTileLayer, Map,
+      Basemap, BasemapToggle, SceneView, on, dom
+    ) {
   var map = new Map({
     basemap: "streets",
     ground: "world-elevation"
@@ -32,6 +39,15 @@ require([
     scale: 50000000,          // Sets the initial scale to 1:50,000,000
     center: [-101.17, 21.78]  // Sets the center point of view with lon/lat
   });
+
+   var worldimages = new Basemap({
+   baseLayers: ["https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/"],
+   title: "World Image",
+   id: "wldimg"
+     });
+
+
+
    on(dom.byId("goto1"), "click", function(e) {
         // If checkbox is checked, use after landslide elevation data
         setbase("streets");
@@ -68,8 +84,13 @@ require([
         // If checkbox is checked, use after landslide elevation data
         setbase("osm");
       });
+      on(dom.byId("goto9"), "click", function(e) {
+        // If checkbox is checked, use after landslide elevation data
+         map.basemap = worldimages;
+      });
+     
 
-function setbase(bsmp) {
+     function setbase(bsmp) {
           map.basemap = bsmp;
 
 
@@ -99,6 +120,7 @@ function setbase(bsmp) {
                <button id="goto6" title="goto6">"streets-night-vector"</button>
                <button id="goto7" title="goto7">"streets-navigation-vector"</button>
                <button id="goto8" title="goto8">"osm"</button>
+               <button id="goto9" title="goto9">"worldimage"</button>
             </div>
            </div>
         </div>
